@@ -22,7 +22,7 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "#7d4ed1";
+      document.body.style.backgroundColor = "#042743";
       showAlert("Dark Mode has been enabled", "success");
       document.title = "TextUtils-Darkmode";
     } else {
@@ -45,8 +45,8 @@ function App() {
       <Alert alert={alert} />
       <div className="container">
         <Routes>
-          <Route exact path="/about" element={<About />}/>
-          <Route exact path="/" element={<Textform heading="Enter the text to convert" mode={mode} showAlert={showAlert}/>}/>
+          <Route exact path="/about" element={<About mode={mode}/>}/>
+          <Route exact path="/" element={<Textform heading="Try TextUtils- word counter, charecter counter, upper to lower" mode={mode} showAlert={showAlert}/>}/>
         </Routes>
       </div>
       </Router>

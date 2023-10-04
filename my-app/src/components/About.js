@@ -1,31 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About () {
-    const [myStyle, setMyStyle]=useState({
-        color: 'black',
-        backgroundColor: 'white'
-    })
+export default function About (props) {
+    // const [myStyle, setMyStyle]=useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
+    // })
 
-    const [btnText, setBtnText]=useState("Enable Dark Mode")
-    const toggleStyle =()=>{
-        if(myStyle.color === 'black'){
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black'
-            })
-            setBtnText("Enable Light Mode")
-        }
-        else{
-            setMyStyle({
-                color:'black',
-                backgroundColor:'white'
-            })
-            setBtnText("Enable Dark Mode")
-        }
+    // const [btnText, setBtnText]=useState("Enable Dark Mode")
+    // const toggleStyle =()=>{
+    //     if(myStyle.color === 'black'){
+    //         setMyStyle({
+    //             color:'white',
+    //             backgroundColor:'black'
+    //         })
+    //         setBtnText("Enable Light Mode")
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color:'black',
+    //             backgroundColor:'white'
+    //         })
+    //         setBtnText("Enable Dark Mode")
+    //     }
+    // }
+
+    let myStyle = {
+      color:props.mode==="dark"?'white':'#042743',
+      backgroundColor:props.mode==="dark"?'#042743':'white',
     }
 
   return (
-    <div className="container" style={myStyle}>
+    <div className="container" style={{color:props.mode==="dark"?'white':'#042743'}}>
         <h1 className="my-3">About Us</h1>
       <div className="accordion" id="accordionPanelsStayOpenExample">
         <div className="accordion-item" style={myStyle}>
@@ -39,22 +44,15 @@ export default function About () {
               aria-expanded="true"
               aria-controls="panelsStayOpen-collapseOne"
             >
-              Accordion Item #1
+              <strong>Analyze your text</strong>
             </button>
           </h2>
           <div
             id="panelsStayOpen-collapseOne"
             className="accordion-collapse collapse show"
           >
-            <div className="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div className="accordion-body" style={myStyle}>
+              Textutils gives you ability to analyze your text 
             </div>
           </div>
         </div>
@@ -69,22 +67,17 @@ export default function About () {
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseTwo"
             >
-              Accordion Item #2
+             <strong>Free to use</strong> 
             </button>
           </h2>
           <div
             id="panelsStayOpen-collapseTwo"
             className="accordion-collapse collapse"
           >
-            <div className="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div className="accordion-body" style={myStyle}>
+              Textutil is a free charecter tool that provide instant charecter count
+              & word count statitics for a given text.so it can help in writing text with 
+              word/charecter limit.
             </div>
           </div>
         </div>
@@ -99,28 +92,19 @@ export default function About () {
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseThree"
             >
-              Accordion Item #3
+              <strong>Browser Compatible</strong>
             </button>
           </h2>
           <div
             id="panelsStayOpen-collapseThree"
             className="accordion-collapse collapse"
           >
-            <div className="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div className="accordion-body" style={myStyle}>
+              This word counter website works with any web browser such as Chrome, firefox, Internet Explorer etc.
+              it is suitable for counting charecters in facebook posts, blogs, books, excel documents, pdf documents, essays etc.
             </div>
           </div>
         </div>
-      </div>
-      <div className="my-3">
-        <button onClick={toggleStyle} type="button" className="btn btn-primary">{btnText}</button>
       </div>
     </div>
   );
